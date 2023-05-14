@@ -1,0 +1,25 @@
+| t-Student
+| Incremental KMeans VS Mini-Batch KMeans
+adjusted_rand_score: t = -7.93855, p = 0.0
+normalized_mutual_info_score: t = -9.09228, p = 0.0
+minkowski: t = -6.42461, p = 0.0
+
+| t-Student
+| Incremental KMeans VS BIRCH
+adjusted_rand_score: t = -3.64559, p = 0.00034
+normalized_mutual_info_score: t = -5.26919, p = 0.0
+minkowski: t = 0.52017, p = 0.60353
+
+
+| Wilcoxon
+| Incremental KMeans VS Mini-Batch KMeans
+adjusted_rand_score: statistic = 365.0, p-value = 0.0
+normalized_mutual_info_score: statistic = 291.0, p-value = 0.0
+minkowski: statistic = 583.5, p-value = 0.0
+
+| Wilcoxon
+| Incremental KMeans VS BIRCH
+adjusted_rand_score: statistic = 1395.0, p-value = 0.00016
+normalized_mutual_info_score: statistic = 1011.0, p-value = 0.0
+minkowski: statistic = 2017.0, p-value = 0.63473
+
