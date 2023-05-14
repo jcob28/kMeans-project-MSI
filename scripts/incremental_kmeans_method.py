@@ -1,3 +1,6 @@
+# Authors: Weronika Budzowska, Jakub Leśniak
+
+
 import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin
 
@@ -9,7 +12,7 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
         Konstruktor:    - ustawienie wartości domyślnych dla par. k, init i random_state
                         - oraz utworzenie atrybutów centroidy, licznik_klastrow i klasy
     """
-    def __init__(self, k=2, init='incr-kmeans', random_state=None):
+    def __init__(self, k=2, init='k-means++', random_state=None):
         # liczba klastrów
         self.k = k
         # inicjalizacja centroidów
@@ -39,27 +42,19 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
                                 - przypisanie punktów do najbliższego klastra
                                 - aktualizacja centroidów
     """
-    def partial_fit(self, X, y, classes=None):
+    def partial_fit(self, X, y=None, classes=None):
         # inicjalizacja centroidów
         if self.centroidy is None:
-            if self.init != 'incr-kmeans':
+            if self.init != 'k-means++':
                 # losowa inicjalizacja centroidów
                 self.centroidy = X[np.random.choice(X.shape[0], self.k, replace=False)]
             else:
                 # inicjalizacja centroidów metodą incr-kmeans
-                self.centroidy = self._inicjalizuj_incr_kmeans(X, self.k, self.random_state)
-
-            self.licznik_klastrow = np.zeros(self.k)  # inicjalizacja licznika klastrów
-            self.klasy = classes  # inicjalizacja klasy przykładów
-
-        else:
-            # aktualizacja klasy przykładów
-            if classes is not None:
-                self.klasy = np.unique(np.concatenate([self.klasy, classes]))
+                self.centroidy = self._inicjalizuj_KMeansPlusPlus(X, self.k, self.random_state)
 
         # przypisanie klastrów z uwzględnieniem aktualizacji centroidów
         najblizszy_klaster = self._przypisz_klastry(X, self.centroidy)
-        self._aktualizuj_centroidy(X, najblizszy_klaster, y)
+        self._aktualizuj_centroidy(X, najblizszy_klaster)
 
         return self
 
@@ -85,13 +80,12 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
                                          - aktualizacja licznika klastrów
                                             
     """
-    def _aktualizuj_centroidy(self, X, najblizszy_klaster, y=None):
+    def _aktualizuj_centroidy(self, X, najblizszy_klaster):
         for k in range(self.k):
             maska = najblizszy_klaster == k
 
             if np.sum(maska) > 0:
                 self.centroidy[k] = np.average(X[maska], axis=0)
-                self.licznik_klastrow[k] += np.sum(maska)
 
     """
         Metoda _inicjalizuj_incr_kmeans:     - losowy wybór pierwszego centroidu
@@ -101,13 +95,13 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
                                              - losowy wybór centroidu zgodnie z prawdopodobieństwem p
                                              - zwrot wygenerowanych centroidów
     """
-    def _inicjalizuj_incr_kmeans(self, X, k, random_state):
+    def _inicjalizuj_KMeansPlusPlus(self, X, k, random_state):
         # pierwszy centroid losowo
         randomowe = np.random.default_rng(random_state)
         pierwszy_centroid = randomowe.choice(X.shape[0])
         centroidy = [X[pierwszy_centroid]]
 
-        # kolejne centroidy za pomocą algorytmu incr-kmeans
+        # kolejne centroidy za pomocą algorytmu KMeans++
         for x in range(1, k):
             odleglosci = np.linalg.norm(X[:, np.newaxis, :] - centroidy, axis=2)
             minimalne_odleglosci = np.min(odleglosci, axis=1)
