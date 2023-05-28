@@ -2,6 +2,7 @@
 
 
 import numpy as np
+import scipy
 from sklearn.base import BaseEstimator, ClassifierMixin
 
 
@@ -12,7 +13,7 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
         Konstruktor:    - ustawienie wartości domyślnych dla par. k, init i random_state
                         - oraz utworzenie atrybutów centroidy, licznik_klastrow i klasy
     """
-    def __init__(self, k=2, init='k-means++', random_state=None):
+    def __init__(self, k=2, init='k-means++', random_state=None, p=2, iter_v=100):
         # liczba klastrów
         self.k = k
         # inicjalizacja centroidów
@@ -25,6 +26,9 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
         self.licznik_klastrow = None
         # klasy przykładów
         self.klasy = None
+        # parametr metody
+        self.p = p
+        self.iter_v = iter_v
 
     """
         Metoda predict:     - przypisanie każdego punktu do najbliższego klastra 
@@ -65,9 +69,10 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
     """
     def _przypisz_klastry(self, X, centroidy):
         # obliczenie odległości od centroidów
-        odleglosci = np.linalg.norm(X[:, np.newaxis, :] - centroidy, axis=2)
+        odleglosci = scipy.spatial.distance.cdist(X, centroidy, metric='minkowski', p=self.p)
         # przypisanie klastrów do najbliższych centroidów
         najblizszy_klaster = np.argmin(odleglosci, axis=1)
+
 
         return najblizszy_klaster
 
