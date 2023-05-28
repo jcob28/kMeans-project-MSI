@@ -27,12 +27,12 @@ models = [
 ]
 
 # Inicjalizacja strumieni danych
-streams = []
+strumienie = []
 for n_drift in n_drifts:
-    stream = StreamGenerator(random_state=42, n_chunks=n_chunks, chunk_size=chunk_size, n_classes=2,
-                            n_features=n_informative, n_informative=n_informative,
-                            n_redundant=0, n_clusters_per_class=1, n_drifts=n_drift)
-    streams.append(stream)
+    strumien = StreamGenerator(random_state=42, n_chunks=n_chunks, chunk_size=chunk_size, n_classes=2,
+                               n_features=n_informative, n_informative=n_informative,
+                               n_redundant=0, n_clusters_per_class=1, n_drifts=n_drift)
+    strumienie.append(strumien)
 
 # Ewaluacja modeli na strumieniach danych
 evaluator_scores = [[] for _ in models]
@@ -40,10 +40,10 @@ evaluator_scores = [[] for _ in models]
 # Metryki
 metryki = [adjusted_rand_score, normalized_mutual_info_score]
 
-# Ewaluacja modeli
+# Ewaluacja modeli na strumieniach danych
 for i in range(n_chunks):
-    for j, stream in enumerate(streams):
-        X_chunk, y_chunk = stream.get_chunk()
+    for j, strumien in enumerate(strumienie):
+        X_chunk, y_chunk = strumien.get_chunk()
 
         for k, model in enumerate(models):
             model.partial_fit(X_chunk, y_chunk)

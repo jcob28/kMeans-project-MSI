@@ -4,6 +4,7 @@
 import numpy as np
 import scipy
 from sklearn.base import BaseEstimator, ClassifierMixin
+from scipy.spatial.distance import cdist
 
 
 # klasa dziedzicząca po BaseEstimator i ClassifierMixin
@@ -70,7 +71,7 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
     """
     def _przypisz_klastry(self, X, centroidy):
         # obliczenie odległości od centroidów
-        odleglosci = scipy.spatial.distance.cdist(X, centroidy, metric='minkowski', p=self.p)
+        odleglosci = cdist(X, centroidy, metric='minkowski', p=self.p)
         # przypisanie klastrów do najbliższych centroidów
         najblizszy_klaster = np.argmin(odleglosci, axis=1)
 
