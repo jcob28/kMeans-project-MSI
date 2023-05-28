@@ -28,6 +28,7 @@ class IncrKmeans(BaseEstimator, ClassifierMixin):
         self.klasy = None
         # parametr metody
         self.p = p
+        # liczba iteracji
         self.iter_v = iter_v
 
     """

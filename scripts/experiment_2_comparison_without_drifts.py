@@ -1,3 +1,6 @@
+# Authors: Weronika Budzowska, Jakub Leśniak
+
+
 import numpy as np
 from incremental_kmeans_method import IncrKmeans
 from birch_algorithm import AlgBirch
