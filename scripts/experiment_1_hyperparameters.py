@@ -55,7 +55,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('evaluator_scores.npy', evaluator_scores)
+np.save('../results/evaluator_scores.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)
@@ -88,6 +88,7 @@ plt.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=12)
 plt.title("t-Student", fontsize=16)
 plt.ylabel("Wartość metryki", fontsize=14)
 plt.xlabel("Numer iteracji", fontsize=14)
+plt.savefig("exp-1-t-Student.png")
 plt.show()
 
 # Wilcoxon
@@ -99,4 +100,5 @@ plt.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=12)
 plt.title("Wilcoxon", fontsize=16)
 plt.ylabel("Wartość metryki", fontsize=14)
 plt.xlabel("Numer iteracji", fontsize=14)
+plt.savefig("exp-1-wilcoxon.png")
 plt.show()

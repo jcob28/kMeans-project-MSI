@@ -15,8 +15,10 @@ import seaborn as sns
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 1000
-chunk_size = 250
+# n_chunks = 1000
+# chunk_size = 250
+n_chunks = 100
+chunk_size = 25
 n_drifts = [3, 5, 10]
 
 # Inicjalizacja modeli
@@ -53,7 +55,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('evaluator_scores_comparison_drifts.npy', evaluator_scores)
+np.save('../results/evaluator_scores_comparison_drifts.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)
@@ -83,6 +85,7 @@ plt.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=12)
 plt.title("t-Student", fontsize=16)
 plt.ylabel("Wartość metryki", fontsize=14)
 plt.xlabel("Numer iteracji", fontsize=14)
+plt.savefig("t-Student_comparison_drifts.png")
 plt.show()
 
 # Wilcoxon
@@ -93,4 +96,5 @@ plt.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=12)
 plt.title("Wilcoxon", fontsize=16)
 plt.ylabel("Wartość metryki", fontsize=14)
 plt.xlabel("Numer iteracji", fontsize=14)
+plt.savefig("Wilcoxon_comparison_drifts.png")
 plt.show()
