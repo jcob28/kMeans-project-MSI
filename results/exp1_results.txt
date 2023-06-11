@@ -1,0 +1,99 @@
+Model: p = 0.05, iter_v = 5
+Adjusted Rand Score: 0.18055834705899865
+Normalized Mutual Info Score: 0.14119288543751998
+
+Model: p = 0.05, iter_v = 10
+Adjusted Rand Score: 0.18055834705899865
+Normalized Mutual Info Score: 0.14119288543751998
+
+Model: p = 0.05, iter_v = 100
+Adjusted Rand Score: 0.18055834705899865
+Normalized Mutual Info Score: 0.14119288543751998
+
+Model: p = 0.05, iter_v = 500
+Adjusted Rand Score: 0.18055834705899865
+Normalized Mutual Info Score: 0.14119288543751998
+
+Model: p = 0.05, iter_v = 1000
+Adjusted Rand Score: 0.18055834705899865
+Normalized Mutual Info Score: 0.14119288543751998
+
+Model: p = 0.5, iter_v = 5
+Adjusted Rand Score: 0.2999838797840227
+Normalized Mutual Info Score: 0.23651203935814763
+
+Model: p = 0.5, iter_v = 10
+Adjusted Rand Score: 0.2999838797840227
+Normalized Mutual Info Score: 0.23651203935814763
+
+Model: p = 0.5, iter_v = 100
+Adjusted Rand Score: 0.2999838797840227
+Normalized Mutual Info Score: 0.23651203935814763
+
+Model: p = 0.5, iter_v = 500
+Adjusted Rand Score: 0.2999838797840227
+Normalized Mutual Info Score: 0.23651203935814763
+
+Model: p = 0.5, iter_v = 1000
+Adjusted Rand Score: 0.2999838797840227
+Normalized Mutual Info Score: 0.23651203935814763
+
+Model: p = 1, iter_v = 5
+Adjusted Rand Score: 0.374213586204121
+Normalized Mutual Info Score: 0.29784957148056834
+
+Model: p = 1, iter_v = 10
+Adjusted Rand Score: 0.374213586204121
+Normalized Mutual Info Score: 0.29784957148056834
+
+Model: p = 1, iter_v = 100
+Adjusted Rand Score: 0.374213586204121
+Normalized Mutual Info Score: 0.29784957148056834
+
+Model: p = 1, iter_v = 500
+Adjusted Rand Score: 0.374213586204121
+Normalized Mutual Info Score: 0.29784957148056834
+
+Model: p = 1, iter_v = 1000
+Adjusted Rand Score: 0.374213586204121
+Normalized Mutual Info Score: 0.29784957148056834
+
+Model: p = 2, iter_v = 5
+Adjusted Rand Score: 0.4886627676544045
+Normalized Mutual Info Score: 0.40792679165853185
+
+Model: p = 2, iter_v = 10
+Adjusted Rand Score: 0.4886627676544045
+Normalized Mutual Info Score: 0.40792679165853185
+
+Model: p = 2, iter_v = 100
+Adjusted Rand Score: 0.4886627676544045
+Normalized Mutual Info Score: 0.40792679165853185
+
+Model: p = 2, iter_v = 500
+Adjusted Rand Score: 0.4886627676544045
+Normalized Mutual Info Score: 0.40792679165853185
+
+Model: p = 2, iter_v = 1000
+Adjusted Rand Score: 0.4886627676544045
+Normalized Mutual Info Score: 0.40792679165853185
+
+Model: p = 100, iter_v = 5
+Adjusted Rand Score: 0.356145903424802
+Normalized Mutual Info Score: 0.2885199932290219
+
+Model: p = 100, iter_v = 10
+Adjusted Rand Score: 0.356145903424802
+Normalized Mutual Info Score: 0.2885199932290219
+
+Model: p = 100, iter_v = 100
+Adjusted Rand Score: 0.356145903424802
+Normalized Mutual Info Score: 0.2885199932290219
+
+Model: p = 100, iter_v = 500
+Adjusted Rand Score: 0.356145903424802
+Normalized Mutual Info Score: 0.2885199932290219
+
+Model: p = 100, iter_v = 1000
+Adjusted Rand Score: 0.356145903424802
+Normalized Mutual Info Score: 0.2885199932290219
