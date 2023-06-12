@@ -3,7 +3,7 @@ from sklearn.cluster import MiniBatchKMeans
 
 
 class AlgMiniBatchKMeans(BaseEstimator, ClassifierMixin):
-    def __init__(self, n_clusters, random_state=None, chunk_size=1000):
+    def __init__(self, n_clusters, random_state=None):
         self.cluster_centers_ = None
         self.n_clusters = n_clusters
         self.random_state = random_state

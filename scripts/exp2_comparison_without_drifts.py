@@ -11,7 +11,7 @@ from strlearn.streams import StreamGenerator
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 1000
+n_chunks = 300
 chunk_size = 25
 
 # Inicjalizacja strumienia danych
@@ -28,9 +28,7 @@ models = [
 ]
 
 # Ewaluacja modeli na strumieniu danych
-evaluator_scores = []
-for model in models:
-    evaluator_scores.append([])
+evaluator_scores = [[] for _ in range(len(models))]
 
 # Metryki
 metryki = [adjusted_rand_score, normalized_mutual_info_score]
@@ -52,4 +50,5 @@ np.save('../results/exp2_scores.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)
+
 

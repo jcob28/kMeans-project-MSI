@@ -1,8 +1,10 @@
 # Authors: Weronika Budzowska, Jakub Leśniak
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 # Ustawienia eksperymentu
 n_informative = 10

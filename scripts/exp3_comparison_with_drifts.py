@@ -5,23 +5,19 @@ import numpy as np
 from incremental_kmeans_method import IncrKmeans
 from birch_algorithm import AlgBirch
 from mini_batch_kmeans_algorithm import AlgMiniBatchKMeans
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 from strlearn.streams import StreamGenerator
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 100
-chunk_size = 25
+n_chunks = 150
+chunk_size = 20
 n_drifts = [3, 5, 10]
 
 # Inicjalizacja modeli
 models = [
-    IncrKmeans(k=2, init='k-means++', random_state=None, p=2, iter_v=1000),
+    IncrKmeans(k=2, init='k-means++', random_state=None, p=2, iter_v=50),
     AlgMiniBatchKMeans(n_clusters=2, random_state=None),
     AlgBirch(n_clusters=2, random_state=None)
 ]
@@ -29,7 +25,7 @@ models = [
 # Inicjalizacja strumieni danych
 strumienie = []
 for n_drift in n_drifts:
-    strumien = StreamGenerator(random_state=42, n_chunks=n_chunks, chunk_size=chunk_size, n_classes=2,
+    strumien = StreamGenerator(random_state=None, n_chunks=n_chunks, chunk_size=chunk_size, n_classes=2,
                                n_features=n_informative, n_informative=n_informative,
                                n_redundant=0, n_clusters_per_class=1, n_drifts=n_drift)
     strumienie.append(strumien)
