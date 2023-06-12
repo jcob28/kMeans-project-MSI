@@ -11,7 +11,7 @@ from strlearn.streams import StreamGenerator
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 300
+n_chunks = 500
 chunk_size = 25
 
 # Inicjalizacja strumienia danych
@@ -46,7 +46,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('../results/exp2_scores.npy', evaluator_scores)
+np.save('../results_new/exp2/exp2_scores_n.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)

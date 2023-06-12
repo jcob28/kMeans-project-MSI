@@ -46,7 +46,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('../results/exp1_evaluator_scores.npy', evaluator_scores)
+np.save('../results/exp1/exp1_evaluator_scores.npy', evaluator_scores)
 
 # Wyświetlenie wyników
 for i, model in enumerate(models):

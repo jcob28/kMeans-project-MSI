@@ -5,11 +5,11 @@ from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 300
+n_chunks = 400
 chunk_size = 25
 
 # Wczytanie wyników
-evaluator_scores = np.load('../results/exp3_scores.npy')
+evaluator_scores = np.load('../results_new/exp3/exp3_scores.npy')
 
 metryki = [adjusted_rand_score, normalized_mutual_info_score]
 

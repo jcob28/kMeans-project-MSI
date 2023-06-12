@@ -14,7 +14,7 @@ p_values = [0.05, 0.5, 1, 2, 100]
 iter_values = [5, 10, 100, 500, 1000]
 
 # Wizualizacja wyników
-evaluator_scores = np.load('../results/exp1_evaluator_scores.npy')
+evaluator_scores = np.load('../results/exp1/exp1_evaluator_scores.npy')
 evaluator_scores = np.mean(evaluator_scores, axis=1)
 evaluator_scores = np.reshape(evaluator_scores, (len(p_values), len(iter_values), 2))
 evaluator_scores = np.mean(evaluator_scores, axis=2)

@@ -11,8 +11,8 @@ from strlearn.streams import StreamGenerator
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 150
-chunk_size = 20
+n_chunks = 400
+chunk_size = 25
 n_drifts = [3, 5, 10]
 
 # Inicjalizacja modeli
@@ -50,7 +50,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('../results/exp3_scores.npy', evaluator_scores)
+np.save('../results_new/exp3/exp3_scores_n.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)
