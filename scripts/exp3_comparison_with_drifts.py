@@ -11,15 +11,15 @@ from strlearn.streams import StreamGenerator
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 400
-chunk_size = 25
+n_chunks = 500
+chunk_size = 250
 n_drifts = [3, 5, 10]
 
 # Inicjalizacja modeli
 models = [
     IncrKmeans(k=2, init='k-means++', random_state=None, p=2, iter_v=50),
     AlgMiniBatchKMeans(n_clusters=2, random_state=None),
-    AlgBirch(n_clusters=2, random_state=None)
+    # AlgBirch(n_clusters=2, random_state=None)
 ]
 
 # Inicjalizacja strumieni danych
@@ -50,7 +50,7 @@ for i in range(n_chunks):
 
 # Zapis wyników do pliku
 evaluator_scores = np.array(evaluator_scores)
-np.save('../results_new/exp3/exp3_scores_n.npy', evaluator_scores)
+np.save('../results/exp3/exp3_scores.npy', evaluator_scores)
 
 # Wyswietlenie wyników
 print(evaluator_scores)

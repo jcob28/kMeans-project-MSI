@@ -9,8 +9,8 @@ from strlearn.streams import StreamGenerator
 
 # Ustawienia eksperymentu
 n_informative = 10
-n_chunks = 200
-chunk_size = 200
+n_chunks = 500
+chunk_size = 250
 p_values = [0.05, 0.5, 1, 2, 100]
 iter_values = [5, 10, 100, 500, 1000]
 
