@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import ttest_ind, ttest_rel
+from scipy.ndimage import gaussian_filter1d
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 
 
@@ -34,6 +35,20 @@ for m, metryka in enumerate(metryki):
     plt.gca().grid(True, linestyle='--', linewidth=1)
     plt.savefig(f"../results/exp3/exp3_{metryka.__name__}.png")
     plt.show()
+
+# # Naniesienie filtru gaussowskiego z biblioteki scipy na wykresy
+# for m, metryka in enumerate(metryki):
+#     plt.figure(figsize=(32, 20))
+#     plt.plot(gaussian_filter1d(evaluator_scores[0, :, m], sigma=10), label="IncrKmeans")
+#     plt.plot(gaussian_filter1d(evaluator_scores[1, :, m], sigma=10), label="MiniBatchKMeans")
+#     plt.xlabel("Numer iteracji", fontsize='26')
+#     plt.ylabel(f"{metryka.__name__}", fontsize='26')
+#     plt.legend(fontsize='26')
+#     plt.gca().xaxis.set_tick_params(labelsize=24)
+#     plt.gca().yaxis.set_tick_params(labelsize=24)
+#     plt.gca().grid(True, linestyle='--', linewidth=1)
+#     plt.savefig(f"../results/exp3/exp3_{metryka.__name__}_gauss.png")
+#     plt.show()
 
 print("------------------------------------")
 
@@ -72,6 +87,7 @@ for m, metryka in enumerate(metryki):
     plt.show()
 
 print()
+
 
 """
     Testy statystyczne
